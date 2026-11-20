@@ -1,0 +1,321 @@
+{
+  "implementation": "baseline",
+  "baseline_commit": "d9989e294615046519a1658ff76c4343f465fb0c",
+  "python": "3.14.4",
+  "tiktoken": "0.14.0",
+  "billing": {
+    "input": 3,
+    "cached_input": 0.3,
+    "output": 15
+  },
+  "measurement": "fresh session per ticket; local simulator; no cache discounts",
+  "question1": [
+    {
+      "ticket_id": "T-1001",
+      "action": "REFUND",
+      "kb_article": "returns-within-30-days",
+      "calls": [
+        {
+          "label": "handle_ticket",
+          "input_tokens": 535,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 535,
+          "output_tokens": 486,
+          "points": 8895,
+          "prompt_sha256": "08833902563a2f8c0af2c54447612fec72118aa2fb418c2a18e300d4bfb38098"
+        }
+      ],
+      "total_points": 8895
+    },
+    {
+      "ticket_id": "T-1002",
+      "action": "SEND_ARTICLE",
+      "kb_article": "digital-license-no-refund",
+      "calls": [
+        {
+          "label": "handle_ticket",
+          "input_tokens": 528,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 528,
+          "output_tokens": 485,
+          "points": 8859,
+          "prompt_sha256": "35ab5dd8fbbb85742deab420eddcfc23633a6a04553940694e0ac9fe0b9989e1"
+        }
+      ],
+      "total_points": 8859
+    },
+    {
+      "ticket_id": "T-1003",
+      "action": "ESCALATE_TIER2",
+      "kb_article": "custom-items-no-replace",
+      "calls": [
+        {
+          "label": "handle_ticket",
+          "input_tokens": 518,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 518,
+          "output_tokens": 480,
+          "points": 8754,
+          "prompt_sha256": "fabcdf1bd65003bf41f3640e6d387b96be6977cd4c4d5a63c1e8bc3500cde790"
+        }
+      ],
+      "total_points": 8754
+    },
+    {
+      "ticket_id": "T-1004",
+      "action": "REPLACE",
+      "kb_article": "damage-replacement-7-days",
+      "calls": [
+        {
+          "label": "handle_ticket",
+          "input_tokens": 517,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 517,
+          "output_tokens": 491,
+          "points": 8916,
+          "prompt_sha256": "b258db01018dcc4866ddafd1fd8ab4a20aca2cde16afe7cd64abf744f6f88742"
+        }
+      ],
+      "total_points": 8916
+    },
+    {
+      "ticket_id": "T-1091",
+      "action": "SEND_ARTICLE",
+      "kb_article": "subscription-cooling-off",
+      "calls": [
+        {
+          "label": "handle_ticket",
+          "input_tokens": 521,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 521,
+          "output_tokens": 492,
+          "points": 8943,
+          "prompt_sha256": "13d57667146ec06e8b64df0a4ac050dfd87b16ec4c1e69e8bd9660662587e6ca"
+        }
+      ],
+      "total_points": 8943
+    }
+  ],
+  "question2": [
+    {
+      "ticket_id": "T-1001",
+      "action": "REFUND",
+      "kb_article": "returns-within-30-days",
+      "calls": [
+        {
+          "label": "triage",
+          "input_tokens": 8458,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 8458,
+          "output_tokens": 487,
+          "points": 32679,
+          "prompt_sha256": "4c4911c7ae6e1d6437b6a4ed6a55498f90c3001ea46e915d61ca21238383eb3a"
+        },
+        {
+          "label": "retrieve",
+          "input_tokens": 595,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 595,
+          "output_tokens": 46,
+          "points": 2475,
+          "prompt_sha256": "96235c3eabe2b8a2c14eec137b9a201aefae806e9228acf7b6ab5c5226900654"
+        },
+        {
+          "label": "compose",
+          "input_tokens": 1193,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1193,
+          "output_tokens": 484,
+          "points": 10839,
+          "prompt_sha256": "5c35f43ade909ab48f5464b15865539bcff21527adc26c4cf0df5a468f522379"
+        },
+        {
+          "label": "audit",
+          "input_tokens": 6716,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 6716,
+          "output_tokens": 489,
+          "points": 27483,
+          "prompt_sha256": "12cc69b185f74c02a12499f443247aa6e77cb05a6358418aa43cf3e02278b676"
+        }
+      ],
+      "total_points": 73476
+    },
+    {
+      "ticket_id": "T-1002",
+      "action": "SEND_ARTICLE",
+      "kb_article": "digital-license-no-refund",
+      "calls": [
+        {
+          "label": "triage",
+          "input_tokens": 8448,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 8448,
+          "output_tokens": 494,
+          "points": 32754,
+          "prompt_sha256": "e13cf1a33f539315a0f500ed20f28fb396d79d99fa4c29f2a5b3a84af3e7e6b8"
+        },
+        {
+          "label": "retrieve",
+          "input_tokens": 605,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 605,
+          "output_tokens": 39,
+          "points": 2400,
+          "prompt_sha256": "194e3f0e27607c20b021724a4bf060e2761dfe3fdac1e63f975531ba9a61a9c4"
+        },
+        {
+          "label": "compose",
+          "input_tokens": 1192,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1192,
+          "output_tokens": 494,
+          "points": 10986,
+          "prompt_sha256": "07ea25708266f8c677f358a58f3615e741f4f62f321a319908f134aa5a5542f1"
+        },
+        {
+          "label": "audit",
+          "input_tokens": 6718,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 6718,
+          "output_tokens": 495,
+          "points": 27579,
+          "prompt_sha256": "44a1c7b2e36862411008652c6bcc3ee6b7906f0e81b048af66a207e33e6b4c5c"
+        }
+      ],
+      "total_points": 73719
+    },
+    {
+      "ticket_id": "T-1003",
+      "action": "ESCALATE_TIER2",
+      "kb_article": "custom-items-no-replace",
+      "calls": [
+        {
+          "label": "triage",
+          "input_tokens": 8439,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 8439,
+          "output_tokens": 480,
+          "points": 32517,
+          "prompt_sha256": "648386b3bcaf1a4ab042aa34029f4be563ddf81f312d0da34c56c0aa62133176"
+        },
+        {
+          "label": "retrieve",
+          "input_tokens": 590,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 590,
+          "output_tokens": 39,
+          "points": 2355,
+          "prompt_sha256": "e4ca499d6a5679f7732ec1abd5aee466be96588f7bdf0befc16e2099f518da3c"
+        },
+        {
+          "label": "compose",
+          "input_tokens": 1151,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1151,
+          "output_tokens": 480,
+          "points": 10653,
+          "prompt_sha256": "93d6d13a3bec09bb81657c46369107c073f8f2b6bebe0e50f7dc84a5c4e1c792"
+        },
+        {
+          "label": "audit",
+          "input_tokens": 6677,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 6677,
+          "output_tokens": 493,
+          "points": 27426,
+          "prompt_sha256": "e41dc5fbfa51e24960c1389c9e26a83d483373a0f4430c9eaad2dc23fa80290e"
+        }
+      ],
+      "total_points": 72951
+    },
+    {
+      "ticket_id": "T-1004",
+      "action": "REPLACE",
+      "kb_article": "damage-replacement-7-days",
+      "calls": [
+        {
+          "label": "triage",
+          "input_tokens": 8438,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 8438,
+          "output_tokens": 491,
+          "points": 32679,
+          "prompt_sha256": "045e9d08e40d90dc6d71ff34e4b9091defeffab7c8e4ad64d67c6d3fbe3281e0"
+        },
+        {
+          "label": "retrieve",
+          "input_tokens": 601,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 601,
+          "output_tokens": 36,
+          "points": 2343,
+          "prompt_sha256": "0d6887a0de83b822a950d9328daa130873002f21cce37e708643bdeda1952f43"
+        },
+        {
+          "label": "compose",
+          "input_tokens": 1172,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1172,
+          "output_tokens": 490,
+          "points": 10866,
+          "prompt_sha256": "397c408431cf14f9faea5418e77dc447056bca9531180c94330cee9d052e4068"
+        },
+        {
+          "label": "audit",
+          "input_tokens": 6697,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 6697,
+          "output_tokens": 494,
+          "points": 27501,
+          "prompt_sha256": "b9139acfeba04e1323449a90a6e6a551b1d69d653a2854432f113ef9a0141bd7"
+        }
+      ],
+      "total_points": 73389
+    },
+    {
+      "ticket_id": "T-1091",
+      "action": "SEND_ARTICLE",
+      "kb_article": "subscription-cooling-off",
+      "calls": [
+        {
+          "label": "triage",
+          "input_tokens": 8444,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 8444,
+          "output_tokens": 480,
+          "points": 32532,
+          "prompt_sha256": "d43c964a539e77001e11d0cc1744e8b5fc4e6df37ff4337629ac5a5d2955e564"
+        },
+        {
+          "label": "retrieve",
+          "input_tokens": 599,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 599,
+          "output_tokens": 38,
+          "points": 2367,
+          "prompt_sha256": "84d42aabdfe8b640d366cfd9108cce194ce85bf943ddf64d4b3f9675ce5f98a0"
+        },
+        {
+          "label": "compose",
+          "input_tokens": 1159,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 1159,
+          "output_tokens": 492,
+          "points": 10857,
+          "prompt_sha256": "1458ef3c112a188f6833dfa7b7f79f6ca30f8a8d50746e271f3163c3802ca084"
+        },
+        {
+          "label": "audit",
+          "input_tokens": 6697,
+          "cached_input_tokens": 0,
+          "uncached_input_tokens": 6697,
+          "output_tokens": 480,
+          "points": 27291,
+          "prompt_sha256": "71c1996adedc108cf9bd1672d2c08fe443555b3742c2cb5f9156f1afbd00a472"
+        }
+      ],
+      "total_points": 73047
+    }
+  ]
+}

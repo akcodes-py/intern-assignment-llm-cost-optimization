@@ -1,0 +1,22 @@
+# Python
+.venv/
+venv/
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local runtime / editors
+**/runtime/
+.DS_Store
+Thumbs.db
+*.log
+*.swp
