@@ -6,18 +6,38 @@ ShopAssist is a Tier-1 e-commerce support copilot. For each ticket it reads the 
 thread and order facts, picks one of four actions (`REFUND`, `REPLACE`, `SEND_ARTICLE`,
 `ESCALATE_TIER2`), and cites the help-center article that backs the decision.
 
-## Results
+This submission provides optimized single-call (`SupportCopilot`) and 4-stage
+(`SupportPipeline`) support agents achieving **100% accuracy** on all public tickets
+(`T-1001`–`T-1004`) and the holdout ticket (`T-1091`), measured cold-start with
+**zero cached-token assumptions**.
 
-| Track | Baseline (T-1001) | Optimized (T-1001) | Public average | Budget |
-|---|---:|---:|---:|---:|
-| **Q1** — single call | 8,895 | 1,308 | **1,204** | 3,000 |
-| **Q2** — 4-node pipeline | 73,476 | 1,260 | **1,208** | 2,500 |
+## Results Summary
 
-All figures use a fresh `CostSession` per ticket, `tiktoken 0.14.0`, and zero assumed
-cache discounts. Every public ticket and the holdout `T-1091` returns the correct
-`action` and `kb_article`. The full per-call breakdown is in
-[`docs/WRITEUP.md`](docs/WRITEUP.md); the reasoning behind each choice is in
-[`DECISIONS.md`](DECISIONS.md).
+| Track | Baseline (T-1001) | Optimized (T-1001) | Public Avg (Range) | Budget | Reduction | Accuracy |
+| :--- | ---: | ---: | ---: | ---: | ---: | :---: |
+| **Q1 (`SupportCopilot`)** | 8,895 | **1,308** | **1,204** (1,146–1,308) | ≤ 3,000 | **−86%** | 100% |
+| **Q2 (`SupportPipeline`)** | 73,476 | **1,260** | **1,208** (1,125–1,260) | ≤ 2,500 | **−98%** | 100% |
+
+All figures use a fresh `CostSession` per ticket and `tiktoken 0.14.0`. The full per-call
+breakdown is in [`docs/WRITEUP.md`](docs/WRITEUP.md); the reasoning behind each choice is
+in [`DECISIONS.md`](DECISIONS.md).
+
+## Key Engineering Decisions
+
+- **Output first.** Output costs 15 pts/token vs 3 for input. Removing the baseline's
+  "think step by step / quote articles" instruction cut T-1001 output from 486 to 46 tokens.
+- **One paid call in Q2.** Four stages are kept, but triage, retrieval and audit are local
+  Python; only `compose` calls the model. Four 46-token replies alone would be 2,760 points.
+- **Deterministic routing, bounded retrieval.** Q1 sends only the 1–2 compact policies an
+  order can need; Q2's `TOP_K = 4` scorer prefers dedicated articles, and the catch-all is
+  appended after the slice so it can never evict a needed policy.
+- **Fail-closed audit.** Malformed JSON, an invalid action, or an unretrieved citation
+  becomes `ESCALATE_TIER2` with a recorded `validation_error`, not a silent wrong refund.
+- **Two-layer untrusted-input defence.** `scrub()` removes cost bait; `safe_thread()`
+  applies a wider net and drops the whole thread on instruction-override attempts. The
+  worst hostile case adds 21 points instead of inflating a ticket to ~8,000.
+- **Non-circular testing.** A prompt-only stand-in model over 960 orders, field-necessity
+  proofs, ablations, and a 500-article scaling test — beyond the local simulator.
 
 ## Tracks
 
